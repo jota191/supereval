@@ -1,18 +1,16 @@
-import argparse
 import unicodedata
 from .ejercicio import Ejercicio
 from .prueba import Prueba
-import pdb
 from collections import defaultdict
 
 def remover_acentos(s):
-   return ''.join(c for c in unicodedata.normalize('NFD', s)
-                  if unicodedata.category(c) != 'Mn') 
+	return ''.join(c for c in unicodedata.normalize('NFD', s)
+								if unicodedata.category(c) != 'Mn') 
 
 def abrir_contenedor(nombre_archivo):
-	# pdb.set_trace()
 	archivo = open(nombre_archivo, 'r')
 	return [linea for linea in archivo]
+
 
 def contiene_clave(linea, especifico=['titulo',
 										'problema', 
@@ -20,15 +18,16 @@ def contiene_clave(linea, especifico=['titulo',
 										'distractor', 
 										'comentario',
 										'parametro',
-										'computo',
 										'maximo',
 										'minimo',
 										'decimales',
+										'computo',
 										'formula']):
 	if ':' not in linea:
 		return False
 	clave = remover_acentos(linea.split(':')[0].strip().lower())
 	return clave in especifico
+
 
 def clave_valor(lineas):
 	linea = lineas.pop(0)
@@ -38,6 +37,7 @@ def clave_valor(lineas):
 		linea_pregunta = lineas.pop(0)
 		valor += linea_pregunta
 	return clave, valor.strip()
+
 
 def parsear_ejercicio(nombre_ejercicio):
 	ejercicio = Ejercicio()
@@ -91,8 +91,14 @@ def parsear_ejercicio(nombre_ejercicio):
 			lineas.pop(0)
 	return ejercicio
 
-def parametrizar_eval(titulo_prueba, nombres_ejercicios, numero_instancias=0, texto=False, latex=False, eva=False):
-	# pdb.set_trace()
+
+def parametrizar_eval(
+	titulo_prueba, 
+	nombres_ejercicios, 
+	numero_instancias, 
+	texto=False, 
+	latex=False, 
+	eva=False):
 	prueba = Prueba(titulo_prueba, numero_instancias)
 	for nombre_ejercicio in nombres_ejercicios:
 		ejercicio =  parsear_ejercicio(nombre_ejercicio)
@@ -107,25 +113,3 @@ def parametrizar_eval(titulo_prueba, nombres_ejercicios, numero_instancias=0, te
 	if eva:
 		prueba.generar('eva')
 		return prueba.nombre + '.xml'
-
-if __name__ == "__main__": 
-	parser = argparse.ArgumentParser(description="Crea prueba a partir de los ejercicios parametrizados")
-	parser.add_argument('titulo', help='Titulo de la prueba')
-	parser.add_argument('ejercicios_parametrizados', nargs='+', 
-						help='Lista de ejercicios parametrizados.')
-	parser.add_argument('--cantidad', type=int, help='Cantidad de pruebas')
-	parser.add_argument('--texto', action="store_true", help='Exportacion a texto plano')
-	parser.add_argument('--pdf', action="store_true", help='Exportacion a PDF')
-	parser.add_argument('--eva', action="store_true", help='Para importar a entorno EVA')
-	parser.add_argument('--encabezado', help='Encabezado en formato LaTeX')
-	args = parser.parse_args()
-	
-	parametrizar_eval(
-		args.titulo, 
-		args.ejercicios_parametrizados, 
-		numero_instancias=args.cantidad, 
-		texto=args.texto, 
-		eva=args.eva, 
-		latex=args.pdf)
-
-

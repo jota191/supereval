@@ -31,6 +31,7 @@ class InstanciaPrueba:
 		# doc.append(NoEscape('Aca va a ir el encavesado'))
 
 		###### encabezado
+		
 		with doc.create(Section('{} #{}'.format(InstanciaPrueba.titulo ,self.id))):
 			for numero in range(0, len(self.ejercicios_instanciados)):
 				doc.append(self.ejercicios_instanciados[numero].latex(numero + 1))

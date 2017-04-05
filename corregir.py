@@ -1,6 +1,5 @@
 import csv
 import argparse
-import pdb
 
 def corregir(respuestas_correctas, respuestas_alumnos, planilla_correciones):
 	
@@ -17,7 +16,6 @@ def corregir(respuestas_correctas, respuestas_alumnos, planilla_correciones):
 	
 	correcciones = [['id', 'alumno', 'nota'] + list(range(1, num_problemas))] # range?
 
-	# pdb.set_trace()
 	for respuestas_alumno in respuestas_alumnos:
 		correccion_prueba = respuestas_alumno[:2] + ['NOTA']
 		respuestas_correcta_prueba = respuestas_correctas_dict[respuestas_alumno[0]]
