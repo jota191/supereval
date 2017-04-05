@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+			<quiz>
+			<question type="category">
+				<category>
+					<text>$course$/eje1prueba</text>
+				</category>
+			</question><question type="calculatedmulti"><name><text>Integral indefinida</text></name><questiontext format="moodle_auto_format"><text><![CDATA[La función 
+
+<p style="text-align: center;">\(F(x)= \int_{{limiteinferior}}^{x}{(|{constanteintegracion}-x|-x)dx}\)</p>
+
+ admite para \(x \leq {menorigual}\) una expresión \(F(x)=ax^2+bx + c\), en forma de un polinomo de grado menor o igual a 2. 
+
+Determinar la suma \(a + b + c\) de los coeficientes de ese polinomio.]]></text></questiontext>
+			<generalfeedback format="moodle_auto_format"><text/></generalfeedback>
+			<defaultgrade>1.0000000</defaultgrade>
+			<penalty>0.3333333</penalty>
+			<hidden>0</hidden>
+			<synchronize>0</synchronize>
+			<single>1</single>
+			<answernumbering>abc</answernumbering>
+			<shuffleanswers>1</shuffleanswers>
+			<correctfeedback><text>Correcta.</text></correctfeedback>
+			<partiallycorrectfeedback><text>Parcialmente correcto.</text></partiallycorrectfeedback>
+			<incorrectfeedback><text>Incorrecto.</text></incorrectfeedback>
+			<answer fraction="100">
+				<text>{={limiteinferior}*{constanteintegracion}-{menorigual}}</text>
+				<tolerance>0.01</tolerance>
+				<tolerancetype>1</tolerancetype>
+				<correctanswerformat>1</correctanswerformat>
+				<correctanswerlength>2</correctanswerlength>
+				<feedback format="moodle_auto_format"><text/></feedback>
+			</answer>
+				<answer fraction="0">
+					<text>{={limiteinferior}*{constanteintegracion}}</text>
+					<tolerance>0.01</tolerance>
+					<tolerancetype>1</tolerancetype>
+					<correctanswerformat>1</correctanswerformat>
+					<correctanswerlength>2</correctanswerlength>
+					<feedback format="moodle_auto_format"><text/></feedback>
+				</answer>
+				<answer fraction="0">
+					<text>{={limiteinferior}*{menorigual}}</text>
+					<tolerance>0.01</tolerance>
+					<tolerancetype>1</tolerancetype>
+					<correctanswerformat>1</correctanswerformat>
+					<correctanswerlength>2</correctanswerlength>
+					<feedback format="moodle_auto_format"><text/></feedback>
+				</answer>
+				<answer fraction="0">
+					<text>Ningúna de las demás es correcta</text>
+					<tolerance>0.01</tolerance>
+					<tolerancetype>1</tolerancetype>
+					<correctanswerformat>1</correctanswerformat>
+					<correctanswerlength>2</correctanswerlength>
+					<feedback format="moodle_auto_format"><text/></feedback>
+				</answer><dataset_definitions>
+			<dataset_definition>
+				<status><text>private</text></status>
+				<name><text>limiteinferior</text></name>
+				<type>calculatedsimple</type>
+				<distribution><text>uniform</text></distribution>
+				<minimum><text>-10</text></minimum>
+				<maximum><text>-1</text></maximum>
+				<decimals><text>1</text></decimals>
+				<itemcount>10</itemcount>
+				<dataset_items>
+			<dataset_item>
+				<number>1</number>
+				<value>-9.6</value>
+			</dataset_item>
+			<dataset_item>
+				<number>2</number>
+				<value>-2.7</value>
+			</dataset_item>
+			<dataset_item>
+				<number>3</number>
+				<value>-4.5</value>
+			</dataset_item>
+			<dataset_item>
+				<number>4</number>
+				<value>-1.9</value>
+			</dataset_item>
+			<dataset_item>
+				<number>5</number>
+				<value>-8.2</value>
+			</dataset_item>
+			<dataset_item>
+				<number>6</number>
+				<value>-7.1</value>
+			</dataset_item>
+			<dataset_item>
+				<number>7</number>
+				<value>-3.1</value>
+			</dataset_item>
+			<dataset_item>
+				<number>8</number>
+				<value>-3.1</value>
+			</dataset_item>
+			<dataset_item>
+				<number>9</number>
+				<value>-5.6</value>
+			</dataset_item>
+			<dataset_item>
+				<number>10</number>
+				<value>-5.4</value>
+			</dataset_item>
+				</dataset_items>
+				<number_of_items>10</number_of_items>
+			</dataset_definition>
+			<dataset_definition>
+				<status><text>private</text></status>
+				<name><text>menorigual</text></name>
+				<type>calculatedsimple</type>
+				<distribution><text>uniform</text></distribution>
+				<minimum><text>3</text></minimum>
+				<maximum><text>1</text></maximum>
+				<decimals><text>1</text></decimals>
+				<itemcount>10</itemcount>
+				<dataset_items>
+			<dataset_item>
+				<number>1</number>
+				<value>2.3</value>
+			</dataset_item>
+			<dataset_item>
+				<number>2</number>
+				<value>2.8</value>
+			</dataset_item>
+			<dataset_item>
+				<number>3</number>
+				<value>1.4</value>
+			</dataset_item>
+			<dataset_item>
+				<number>4</number>
+				<value>2.0</value>
+			</dataset_item>
+			<dataset_item>
+				<number>5</number>
+				<value>2.8</value>
+			</dataset_item>
+			<dataset_item>
+				<number>6</number>
+				<value>1.5</value>
+			</dataset_item>
+			<dataset_item>
+				<number>7</number>
+				<value>2.3</value>
+			</dataset_item>
+			<dataset_item>
+				<number>8</number>
+				<value>2.9</value>
+			</dataset_item>
+			<dataset_item>
+				<number>9</number>
+				<value>1.6</value>
+			</dataset_item>
+			<dataset_item>
+				<number>10</number>
+				<value>2.7</value>
+			</dataset_item>
+				</dataset_items>
+				<number_of_items>10</number_of_items>
+			</dataset_definition>
+			<dataset_definition>
+				<status><text>private</text></status>
+				<name><text>constanteintegracion</text></name>
+				<type>calculatedsimple</type>
+				<distribution><text>uniform</text></distribution>
+				<minimum><text>20</text></minimum>
+				<maximum><text>1</text></maximum>
+				<decimals><text>1</text></decimals>
+				<itemcount>10</itemcount>
+				<dataset_items>
+			<dataset_item>
+				<number>1</number>
+				<value>3.1</value>
+			</dataset_item>
+			<dataset_item>
+				<number>2</number>
+				<value>13.3</value>
+			</dataset_item>
+			<dataset_item>
+				<number>3</number>
+				<value>16.6</value>
+			</dataset_item>
+			<dataset_item>
+				<number>4</number>
+				<value>7.2</value>
+			</dataset_item>
+			<dataset_item>
+				<number>5</number>
+				<value>13.0</value>
+			</dataset_item>
+			<dataset_item>
+				<number>6</number>
+				<value>5.7</value>
+			</dataset_item>
+			<dataset_item>
+				<number>7</number>
+				<value>12.1</value>
+			</dataset_item>
+			<dataset_item>
+				<number>8</number>
+				<value>11.0</value>
+			</dataset_item>
+			<dataset_item>
+				<number>9</number>
+				<value>10.1</value>
+			</dataset_item>
+			<dataset_item>
+				<number>10</number>
+				<value>11.3</value>
+			</dataset_item>
+				</dataset_items>
+				<number_of_items>10</number_of_items>
+			</dataset_definition></dataset_definitions></question></quiz>
