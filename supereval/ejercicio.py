@@ -76,7 +76,7 @@ class Ejercicio:
 			formula_parcial = self.formulas[formula].computo
 			for parametro in self.parametros:
 				formula_parcial = re.sub('(?:(?<=[\W])|(?<=^))' + parametro + '(?=[\W]|$)', '{' + parametro + '}', formula_parcial)
-			formula_eva = '{=' + formula_parcial + '}'
+			formula_eva = '{=' + convert_eva_operators(formula_parcial) + '}'
 			problema_eva = re.sub(simbolo_variable + formula + '(?=[\W]|$)', formula_eva, problema_eva)
 			respuesta_eva = re.sub(simbolo_variable + formula + '(?=[\W]|$)', formula_eva, respuesta_eva)
 			for i in range(len(distractores_eva)):
@@ -128,3 +128,36 @@ def latex_to_eva_syntaxis(text):
 	limites_latex_eva = re.sub(r'(?<!\\)\$([^$]*[^\\])\$', r'\(\1\)', limites_latex_eva)
 	sin_caracteres_escape = limites_latex_eva.replace('\\&', '&').replace('\\$', '$')
 	return sin_caracteres_escape
+
+def convert_eva_operators(formula):
+	# ceil
+	# floor
+	# fmod
+	# trunc
+	# exp
+	# log
+	# pow
+	# sqrt
+	# acos
+	# asin
+	# atan
+	# atan2
+	# cos
+	# hypot
+	# sin
+	# tan
+	# acosh
+	# asinh
+	# atanh
+	# cosh
+	# sinh
+	# tanh
+	# fabs -> abs
+	# degrees -> rad2deg
+	# radians -> deg2rad
+	# pi -> pi()
+	# e -> exp(1)
+
+	for python, php_equiv in {'pi': 'pi()', 'e': 'exp(1)', 'fabs': 'abs', 'degrees': 'rad2deg', 'radians': 'deg2rad'}.items():
+		formula = re.sub('(?:(?<=[\W])|(?<=^))' + python + '(?=[\W]|$)', php_equiv, formula)
+	return formula
