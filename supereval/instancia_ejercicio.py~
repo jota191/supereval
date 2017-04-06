@@ -6,11 +6,6 @@ from pylatex import NoEscape, Subsection, Enumerate
 
 simbolo_variable = '&'
 
-def unpack_dict(a, b):
-	for c, v in b.items():
-		a[c] = v
-	return a
-
 class InstanciaEjercicio:
 
 	titulo = None
@@ -28,7 +23,7 @@ class InstanciaEjercicio:
 
 		vars_instanciadas = vars_instanciadas_backup
 
-		variables = unpack_dict(vars_instanciadas, form_instanciadas)
+		variables = vars_instanciadas
 
 		self.problema = sustituir_variables(problema, variables)
 		respuesta = sustituir_variables(respuesta, variables)
