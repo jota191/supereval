@@ -2,14 +2,16 @@ import random
 import re
 
 from pylatex import NoEscape, Subsection, Enumerate
+import copy
 
 
 simbolo_variable = '&'
 
 def unpack_dict(a, b):
+	new = copy.deepcopy(a)
 	for c, v in b.items():
-		a[c] = v
-	return a
+		new[c] = v
+	return new
 
 class InstanciaEjercicio:
 

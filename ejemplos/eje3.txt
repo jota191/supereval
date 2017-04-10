@@ -37,7 +37,7 @@ Minimo: -3
 Decimales: 1
 
 Computo: sol_x
-formula: (radio ** 2) * pi + cos(p_x * p_z)
+formula: (pow(radio,2)) * pi + cos(p_x * p_z)
 
 Computo: sol_y
 formula: sin(p_x * p_z)

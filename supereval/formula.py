@@ -1,9 +1,11 @@
 import math
+import copy
 
 def unpack_dict(a, b):
+	new = copy.deepcopy(a)
 	for c, v in b.items():
-		a[c] = v
-	return a
+		new[c] = v
+	return new
 
 class Formula:
 	def __init__(self, nombre, computo, decimales):
